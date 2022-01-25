@@ -51,7 +51,8 @@ cp /home/jenkins/workspace/Auto-Api-test/target/API_project-0.0.1-SNAPSHOT.jar /
 docker build -t autoapi-test:${BUILD_VERSION} .
 
 # 启动容器
-docker run -d --name=autoapi-test --restart=always -p 17778:17999 -v /home/jar/autoApi2.0/File:/home/jar/autoApi2.0/File -v /home/jenkins/workspace/Api-Python-Script/stress-result/:/home/jenkins/workspace/Api-Python-Script/stress-result/ autoapi-test:${BUILD_VERSION}
+docker run -d --name=autoapi-test --restart=always -e DUBBO_IP_TO_REGISTRY=192.168.140.85 -p 17778:17999 -p 20880:20880 -v /home/jar/autoApi2.0/File:/home/jar/autoApi2.0/File -v /home/jenkins/workspace/Api-Python-Script/stress-result/:/home/jenkins/workspace/Api-Python-Script/stress-result/ autoapi-test:${BUILD_VERSION}
+
 
 
 
@@ -84,7 +85,7 @@ docker build -t autoapi-official:${API_OFFICIAL_VERSION} .
 
 
 # 启动容器
-docker run -d --name=autoapi-official --restart=always -p 17118:17999 -v /home/jar/autoApi2.0/File:/home/jar/autoApi2.0/File autoapi-official:${API_OFFICIAL_VERSION}
+docker run -d --name=autoapi-official --restart=always -p 17118:17999 -e DUBBO_IP_TO_REGISTRY=192.168.140.85 -p 20881:20881 -v /home/jar/autoApi2.0/File:/home/jar/autoApi2.0/File -v /home/jenkins/workspace/Api-Python-Script/stress-result/:/home/jenkins/workspace/Api-Python-Script/stress-result/ autoapi-official:${API_OFFICIAL_VERSION}
 
 
 # 推送到阿里云
