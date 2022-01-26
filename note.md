@@ -506,3 +506,41 @@ xhr.onload = function(e) {
 
 
 
+### SimpleDateFormat线程不安全
+
+可以改为 DateTimeFormatter，或用ThreadLocalMap对象以提高format对象利用率。
+
+```java
+
+public class SimpleDateFormatTest {
+    
+    static ThreadLocal<SimpleDateFormat> local= new ThreadLocal<SimpleDateFormat>(){
+        @Override
+        protected SimpleDateFormat initialValue(){
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        }
+    };
+ 
+    public static void main(String[] args) {
+        
+        for (int i = 0; i < 5; ++i) {
+            Thread thread = new Thread(() -> {
+                public void run() {
+                    try {
+                        System.out.println(local.get().parse("2022-01-26 13:23:16"));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }finally {
+                        //TODO 线程运行结束清除，避免内存泄露
+                        local.remove();
+                    }
+                }
+            });
+ 
+            thread.start();
+        }
+    }
+ 
+}
+```
+
