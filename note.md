@@ -510,6 +510,8 @@ xhr.onload = function(e) {
 
 可以改为 DateTimeFormatter，或用ThreadLocalMap对象以提高format对象利用率。
 
+以下代码仅作为示例，故未使用线程池。
+
 ```java
 
 public class SimpleDateFormatTest {
