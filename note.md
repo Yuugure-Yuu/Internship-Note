@@ -4,7 +4,9 @@ IDEA代码格式化快捷键：**Ctrl + Alt + L**
 
 ​         本页搜索快捷键：**Ctrl + F**
 
-云原生
+Spyder查找当前脚本代码快捷键：**Ctrl + F**
+
+​			整个工程查找快捷键：**Ctrl + Shift + F**
 
 lsof -i 端口占用
 
