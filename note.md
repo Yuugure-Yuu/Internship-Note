@@ -550,7 +550,7 @@ public class SimpleDateFormatTest {
 
 
 
-### 生成文件
+### 生成文件出错
 
 使用file.createNewFile()生成文件时出错
 
@@ -558,3 +558,35 @@ public class SimpleDateFormatTest {
 
 1. 去除文件名中的冒号；
 2. 确保文件名较短，例如windows系统中文件名长度+路径长度不长于255个英文字符，linux系统中文件名不长于255个英文字符。
+
+
+
+### 返回文件流
+
+```java
+@GetMapping(value = "/file/{fileName}")
+public ResponseEntity<FileSystemResource> getFile(@PathVariable("fileName") String fileName) throws FileNotFoundException {
+	File file = new File(filePath, fileName);
+	if (file.exists()) {
+		return export(file);
+	}
+	System.out.println(file);
+	return null;
+}
+ 
+ 
+public ResponseEntity<FileSystemResource> export(File file) {
+	if (file == null) {
+		return null;
+	}
+	HttpHeaders headers = new HttpHeaders();
+	headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+	headers.add("Content-Disposition", "attachment; filename=" + file.getName());
+	headers.add("Pragma", "no-cache");
+	headers.add("Expires", "0");
+	headers.add("Last-Modified", new Date().toString());
+	headers.add("ETag", String.valueOf(System.currentTimeMillis()));
+	return ResponseEntity.ok().headers(headers).contentLength(file.length()).contentType(MediaType.parseMediaType("application/octet-stream")).body(new FileSystemResource(file));
+}
+```
+
