@@ -548,3 +548,13 @@ public class SimpleDateFormatTest {
 }
 ```
 
+
+
+### 生成文件
+
+使用file.createNewFile()生成文件时出错
+
+解决方案：
+
+1. 去除文件名中的冒号；
+2. 确保文件名较短，例如windows系统中文件名长度+路径长度不长于255个英文字符，linux系统中文件名不长于255个英文字符。
