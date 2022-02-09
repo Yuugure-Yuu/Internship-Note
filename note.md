@@ -20,6 +20,12 @@ docker logs -t --since="2022-01-10T07:49:45" --until "2022-01-10T07:50:00" CONTA
 
 ctrl+c退出
 
+docker images / docker image ls 查看全部镜像
+
+docker rmi imageID / docker image rmi imageID 删除镜像，但删不掉ID有相同的镜像，不建议使用
+
+docker rmi imageName:version 删除镜像
+
 docker rm -f [container_id/container_name]
 
 docker inspect [container_name] 查看容器映射路径信息
@@ -590,3 +596,19 @@ public ResponseEntity<FileSystemResource> export(File file) {
 }
 ```
 
+
+
+### 删除ID相同的镜像
+
+docker rmi imageName:version 删除镜像 建议都用此方法删除
+
+
+
+### JPA save是否先做查询
+
+。当传入的时候不带自增主键时，
+            无论每次传入的数据是否一样，都会当做一条新的数据插入。即只有一条insert语句，即直接插入一条
+。当传入的时候带自增主键时
+        若数据不存在或者主键不存在，则先select再insert语句
+
+​        此主键有数据存在，则先select再update
