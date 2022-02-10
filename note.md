@@ -4,6 +4,8 @@ IDEA代码格式化快捷键：**Ctrl + Alt + L**
 
 ​         本页搜索快捷键：**Ctrl + F**
 
+IDEA引入变量快捷键 ：**Ctrl + Alt + V** 或加.var
+
 Spyder查找当前脚本代码快捷键：**Ctrl + F**
 
 ​			整个工程查找快捷键：**Ctrl + Shift + F**
@@ -465,18 +467,18 @@ class ITDragonCreateInfo {
 
 单体应用，spring-boot-starter-web与spring-cloud-starter-gateway不相容且exclusion排除无效，除非exclusion *但这样就无法使用springcloud。maven tree找不到包冲突。
 
-解决方案：观察IDEA新建项目的pom文件解决方案，改为使用spring-boot-starter-webflux和spring-boot-starter-tomcat，排除spring-boot-starter-tomcat，yml中spring.main.web-application-type=reactive
+解决方案：观察IDEA新建项目的pom文件解决方案，改为使用spring-boot-starter-webflux和spring-boot-starter-tomcat，排除spring-boot-starter-tomcat，yml中spring.main.web-application-type=reactive。
 
 ### 问题2
 
-本地可以起服务、输出正确结果，但部署到服务器不行
-最终发现是服务器未配置时区，以及neo4j与oracle驱动版本不匹配
+本地可以起服务、输出正确结果，但部署到公司内部服务器不行。
+最终发现是公司内部服务器未配置时区，以及neo4j与oracle驱动版本不匹配。
 
 ### 问题3
 
 测试服服务可用，正式服不可用，重启无效
 
-原因：有应用一直在tcp请求应用的接口文档，且该请求被阻塞，导致即使重启正式服端口也一直被占用
+原因：有应用一直在应用的接口文档，且该请求被阻塞，导致即使重启正式服端口也一直被占用。
 
 ## 小问题
 
