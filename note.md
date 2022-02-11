@@ -6,6 +6,8 @@ IDEA代码格式化快捷键：**Ctrl + Alt + L**
 
 IDEA引入变量快捷键 ：**Ctrl + Alt + V** 或加.var
 
+IDEA找到当前方法实现：**Ctrl + Alt + 点击方法名**
+
 Spyder查找当前脚本代码快捷键：**Ctrl + F**
 
 ​			整个工程查找快捷键：**Ctrl + Shift + F**
