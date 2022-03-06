@@ -14,6 +14,16 @@ Spyder查找当前脚本代码快捷键：**Ctrl + F**
 
 lsof -i 端口占用
 
+Jupyter Notebook编辑模式：
+
+Tab  代码补全或缩进
+
+Shift-Tab 提示
+
+Ctrl-Enter 运行本单元
+
+Shift-Enter  运行本单元，选中下一单元
+
 ## Docker命令
 
 docker run -d --name 容器名 -p 外部映射端口:内部服务端口 -v 宿主机文件路径:docker内部文件路径（文件挂载） --privileged=true --restart=always 镜像名:版本号
