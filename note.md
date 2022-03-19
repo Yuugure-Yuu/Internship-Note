@@ -12,13 +12,25 @@ Spyder查找当前脚本代码快捷键：**Ctrl + F**
 
 ​			整个工程查找快捷键：**Ctrl + Shift + F**
 
+单行注释
+
+Ctrl + 1
+
+多行注释选择要注释的行
+
+Ctrl + 4
+
+取消屏蔽多行评论
+
+Ctrl + 5
+
 lsof -i 端口占用
 
 Jupyter Notebook编辑模式：
 
 Tab  代码补全或缩进
 
-Shift-Tab 提示
+Shift-Tab 函数文档提示
 
 Ctrl-Enter 运行本单元
 
